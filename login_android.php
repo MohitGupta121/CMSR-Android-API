@@ -11,7 +11,7 @@ $qry="select * from login where computer_code='$computer_code' and password='$ha
 $raw=mysqli_query($conn,$qry);
 $count=mysqli_num_rows($raw);
 
-$query="SELECT * FROM login WHERE computer_code='$computer_code' and password='$hash_val' and is_student=0";
+$query="SELECT * FROM login WHERE computer_code = '$computer_code' AND is_student = 1";
 $rawst=mysqli_query($conn,$query);
 $countst=mysqli_num_rows($rawst);
 
