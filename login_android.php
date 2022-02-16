@@ -7,32 +7,19 @@ $computer_code=trim($_POST['computer_code']);
 $pswd=trim($_POST['password']);
 $hash_val = md5($pswd);
 
+$query="SELECT is_student FROM `login` WHERE `computer_code` = '$computer_code' and password='$hash_val'";
 
-$qry="select * from login where computer_code='$computer_code' and password='$hash_val'";
-$raw=mysqli_query($conn,$qry);
-$count=mysqli_num_rows($raw);
+$result = mysqli_query($conn, $query);
+$number_of_rows = mysqli_num_rows($result);
 
-$query="SELECT * FROM login WHERE computer_code = '$computer_code' AND is_student = 1";
-$rawst=mysqli_query($conn,$query);
-$countst=mysqli_num_rows($rawst);
+$response = array();
 
-
-if (!$conn) {
-    die("Database connection failed: " . mysqli_error());
+if($number_of_rows > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        $response[] = $row;
+    }
 }
 
-if ($countst>0) {
-	$response['is_student']="yes";
-}else{
-	$response['is_student']="no";
-}
-
-if($count>0){
-    $response['message']="exist";
-}
-else{
-    $response['message']="failed";
-}
-
-echo json_encode($response);
+header('Content-Type: application/json');
+echo json_encode(array("student_info"=>$response));
 ?>
