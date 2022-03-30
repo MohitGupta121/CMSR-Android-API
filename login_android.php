@@ -2,7 +2,7 @@
 
 // $conn=mysqli_connect("localhost","root","xxx123xxx");
 // mysqli_select_db($conn,"minor_new");
-
+ 
 $computer_code=trim($_POST['computer_code']);
 $pswd=trim($_POST['password']);
 $hash_val = md5($pswd);
