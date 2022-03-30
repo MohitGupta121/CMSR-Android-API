@@ -11,7 +11,7 @@ $query="SELECT is_student FROM `login` WHERE `computer_code` = '$computer_code' 
 
 $result = mysqli_query($conn, $query);
 $number_of_rows = mysqli_num_rows($result);
-
+ 
 $response = array();
 
 if($number_of_rows > 0) {
