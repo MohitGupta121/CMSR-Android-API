@@ -1,7 +1,7 @@
 <?php
 
 $conn=mysqli_connect("localhost","root","xxx123xxx");
-mysqli_select_db($conn,"minor_new");
+mysqli_select_db($conn,"cms_cms");
 
 
 if (!$conn) {
