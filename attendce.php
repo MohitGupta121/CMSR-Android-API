@@ -1,4 +1,4 @@
-<?php include("..includes/connection.php");
+<?php include("includes/connection.php");
 
 $clg_sub_code=trim($_POST['clg_sub_code']);
 
