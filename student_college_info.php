@@ -2,7 +2,7 @@
 
 $computer_code=trim($_POST['computer_code']);
 
-$query="SELECT student_name FROM `student_college_info` WHERE `computer_code` = '$computer_code'";
+$query="SELECT student_name FROM `temp_student_data` WHERE `computer_code` = '$computer_code'";
 
 $result = mysqli_query($conn, $query);
 $number_of_rows = mysqli_num_rows($result);
