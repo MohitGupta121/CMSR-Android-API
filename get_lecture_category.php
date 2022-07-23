@@ -2,7 +2,7 @@
 
 $clg_sub_code=trim($_POST['clg_sub_code']);
 
-$query= "SELECT DISTINCT(topic.topic_id),topic.topic_name from subject_batch,topic where subject_batch.clg_sub_code= '$clg_sub_code' and subject_batch.clg_sub_code = topic.subject_code and topic.active=1";
+$query= "SELECT subject_new.type FROM subject_new WHERE subject_new.clg_sub_code = $clg_sub_code AND subject_new.active = 1";
 
 
 $result = mysqli_query($conn, $query);
