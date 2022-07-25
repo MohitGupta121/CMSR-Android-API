@@ -7,10 +7,17 @@ $query= "SELECT DISTINCT(topic.topic_id),topic.topic_name from subject_batch,top
 
 $result = mysqli_query($conn, $query);
 
+$json = array();
+
 while($row[] = $result->fetch_assoc()) {
 	$tem = $row;
 	$json = json_encode($tem);
 }
 
- echo $json;
+if ($json!=null) {
+	echo $json;
+}else{
+	echo json_encode(array());
+}
+ 
 ?>
