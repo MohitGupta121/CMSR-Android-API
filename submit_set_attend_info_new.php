@@ -14,8 +14,10 @@ $query= "INSERT INTO `attend_info_new` ( `batch_id`, `faculty_computer_code`, `d
 
 $result = mysqli_query($conn, $query);
 
+$newest_id = mysqli_insert_id($conn);
+
 if ($result) {
-	echo json_encode(array("INSERT SUCESS"));
+	echo json_encode(array("latest_id"=>$newest_id));
 }else{
 	echo json_encode(array("ERROR"));
 }
