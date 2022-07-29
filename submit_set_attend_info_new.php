@@ -15,8 +15,8 @@ $query= "INSERT INTO `attend_info_new` ( `batch_id`, `faculty_computer_code`, `d
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-	echo "INSERTed";
+	echo json_encode(array("INSERT SUCESS"));
 }else{
-	echo "ERROR";
+	echo json_encode(array("ERROR"));
 }
 ?>
