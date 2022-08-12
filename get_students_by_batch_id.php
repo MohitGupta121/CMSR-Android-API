@@ -9,10 +9,17 @@ student_college_info_new.student_name";
 
 $result = mysqli_query($conn, $query);
 
+$json = array();
+
 while($row[] = $result->fetch_assoc()) {
 	$tem = $row;
 	$json = json_encode($tem);
 }
 
- echo $json;
+if ($json!=null) {
+	echo $json;
+}else{
+	echo json_encode(array());
+}
+
 ?>
